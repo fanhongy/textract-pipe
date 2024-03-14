@@ -6,6 +6,6 @@ import { TextractPipeStack } from '../lib/textract-pipe-stack';
 const app = new cdk.App();
 const env = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION 
+  region: "ap-southeast-2" 
 };
 new TextractPipeStack(app, 'TextractPipeStack', { env: env});

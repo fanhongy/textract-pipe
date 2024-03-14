@@ -2,7 +2,7 @@ import boto3
 import os
 from decimal import Decimal
 import json
-import botocore
+
 textract = boto3.client('textract')
 dynamodb = boto3.resource('dynamodb')
 
@@ -35,7 +35,6 @@ def lambda_handler(event, context):
         'documentId': analysis_id,
         'analysis': analysis,
     }
-
     save_to_ddb(result)
 
 # function to detect the text
@@ -53,6 +52,7 @@ def detect_text(bucket, key):
     except Exception as e:
         print(f"Error: {e}")
         pass
+
 # function to analyze the document
 def analyze_doc(bucket, key):
     try:
